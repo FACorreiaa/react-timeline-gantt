@@ -115,7 +115,11 @@ export default class TaskList extends Component {
 				<div
 					className='timeLine-side-title'
 					style={Config.values.taskList.title.style}>
-					<div>{Config.values.taskList.title.label}</div>
+					{!Config.values.taskList.title.labelRenderer && (
+						<div>{Config.values.taskList.title.label}</div>
+					)}
+					{!!Config.values.taskList.title.labelRenderer &&
+						Config.values.taskList.title.labelRenderer()}
 				</div>
 				<div
 					ref='taskViewPort'
